@@ -9,17 +9,25 @@
                 <a href="#"><img :src="item.src" alt=""></a>
             </li>
         </ul> -->
-        <!-- <transition-group tag="ul" name="active_list ">
+        <transition-group tag="ul" name="active_list ">
             <li
-             v-for="(item, idx) in items"
-             :key="idx"
+             v-for="(item, idx) of items"
+             :key="item.id"
+             
              class="fl"
             >
                <a href="#"><img :src="item.src"></a> 
             </li>
-        </transition-group> -->
-        <transition name>
-        </transition>
+        </transition-group>
+        <!-- <transition name="active_ul" tag="ul">
+            <li
+             v-for="item in items"
+             :key="item.id"
+             class="fl"
+            >
+                <a href="#"><img :src="item.src" alt=""></a>
+            </li>
+        </transition> -->
     </div>
 </template>
 
@@ -89,5 +97,13 @@ export default {
 #link_active img{ 
     display: block;
     margin-right: 20px;
+}
+
+.active_list-enter-active,
+.active_list-leave-active {
+    transition: all 1s;
+}
+.active_list-enter {
+    transform: translateX(-245px);
 }
 </style>

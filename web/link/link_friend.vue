@@ -8,6 +8,7 @@
           :val="idx"
           ref="li"
           class="fl link_friend_title_li"
+          :class= "{active: idx === activeIdx}"
           @mouseenter="tabEnter(idx, $event)"
           @mouseleave="addHidden($event)"
         >{{item.text}}</li>
@@ -56,7 +57,9 @@ export default {
   },
   methods: {
     tabEnter(idx, e) {
-      console.log('idx', idx ,'e.target', e.target ,'$refs',this.$refs);
+      // console.log('idx', idx ,'e.target', e.target ,'$refs',this.$refs);
+      // e.target.classList.value.indexOf('active') ? e.target.classList.remove('active') : '';
+      this.$refs.li[0].classList.remove('active');
       this.prevObj === null ? '' : this.prevObj.classList.remove('link_friend_title_li_pink');
       this.tabItems = points[idx];
       e.target.classList.add('link_friend_title_li_pink')
@@ -64,9 +67,6 @@ export default {
     addHidden(e) {
      this.prevObj = e.target;
     }
-  },
-  mounted() {
-    this.$refs.li[0].classList.add('link_friend_title_li_pink');
   }
 };
 </script>
@@ -112,7 +112,9 @@ export default {
 .link_friend_title_li_pink {
   background-color: pink;
 }
-
+.active {
+  background-color: pink;
+}
 .link_friend_active {
   display: block;
 }
