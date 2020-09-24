@@ -5,10 +5,11 @@
         <li
           v-for="(item, idx) of items"
           :key="item.id"
-          :val="item.id"
+          :val="idx"
+          ref="li"
           class="fl link_friend_title_li"
           @mouseenter="tabEnter(idx, $event)"
-          @mouseleave="addHidden"
+          @mouseleave="addHidden($event)"
         >{{item.text}}</li>
       </ul>
       <div id="link_friend_div">
@@ -49,25 +50,23 @@ export default {
       active_ul: 0,
       act_name: [],
       activeIdx: 0,
-      tabItems: points[0]
+      prevObj: null,
+      tabItems: points[0],
     };
   },
   methods: {
     tabEnter(idx, e) {
-      console.log('idx', idx , e);
+      console.log('idx', idx ,'e.target', e.target ,'$refs',this.$refs);
+      this.prevObj === null ? '' : this.prevObj.classList.remove('link_friend_title_li_pink');
       this.tabItems = points[idx];
-      e.target.style.backgroundColor='pink';
+      e.target.classList.add('link_friend_title_li_pink')
     },
     addHidden(e) {
-      this.active_ul = e.target.getAttribute('val');
-    },
-    initAct() {
-      document.getElementsByClassName('link_friend_ul')[0].classList.remove('hidden');
-      document.getElementsByClassName('link_friend_title_li')[this.active_ul].style.backgroundColor = 'pink';
+     this.prevObj = e.target;
     }
   },
   mounted() {
-    // this.initAct();
+    this.$refs.li[0].classList.add('link_friend_title_li_pink');
   }
 };
 </script>
@@ -93,10 +92,10 @@ export default {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
 }
-#link_friend_title li:hover {
+/* #link_friend_title li:hover {
   cursor: default;
   background-color: #fff;
-}
+} */
 
 #link_friend_div {
   width: 1200px;
@@ -109,6 +108,9 @@ export default {
   height: 35px;
   text-align: center;
   line-height: 35px;
+}
+.link_friend_title_li_pink {
+  background-color: pink;
 }
 
 .link_friend_active {

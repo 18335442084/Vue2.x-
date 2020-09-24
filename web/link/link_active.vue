@@ -1,6 +1,6 @@
 <template>
     <div id="link_active" class="jianju_top">
-        <ul class="clearfix">
+        <!-- <ul class="clearfix">
             <li
              v-for="item in items"
              :key="item.id"
@@ -8,7 +8,18 @@
             >
                 <a href="#"><img :src="item.src" alt=""></a>
             </li>
-        </ul>
+        </ul> -->
+        <!-- <transition-group tag="ul" name="active_list ">
+            <li
+             v-for="(item, idx) in items"
+             :key="idx"
+             class="fl"
+            >
+               <a href="#"><img :src="item.src"></a> 
+            </li>
+        </transition-group> -->
+        <transition name>
+        </transition>
     </div>
 </template>
 
