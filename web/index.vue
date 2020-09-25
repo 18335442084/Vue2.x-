@@ -1,26 +1,20 @@
 <template>
     <div>
-        <Header></Header>
-        <Nav></Nav>
-        <Main></Main>
-        <Lin></Lin>
-        <Footer></Footer>
+        <!-- <router-link to="/">Index Page</router-link> -->
+        <!-- <Main/>        -->
+        <InfoMain></InfoMain>
     </div>
 </template>
 
 <script>
-import Header from './header/header.vue';
-import Nav from './nav/nav.vue';
-import Main from './main/main.vue';
-import Lin from './link/link.vue';
-import Footer from './footer/footer.vue';
+import Main from './main.vue';
+import InfoMain from './infomation/infoMain.vue';
+import HeaderNav from './main/main_nav.vue';
 export default {
     components: {
-        Header,
-        Nav,
         Main,
-        Lin,
-        Footer
+        InfoMain,
+        HeaderNav,
     }
 }
 </script>
