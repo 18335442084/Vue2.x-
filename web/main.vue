@@ -1,10 +1,7 @@
 <template>
     <div>
-        <Header></Header>
-        <Nav></Nav>
         <Main></Main>
         <Lin></Lin>
-        <Footer></Footer>
     </div>
 </template>
 

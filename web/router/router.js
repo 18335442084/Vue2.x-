@@ -2,13 +2,18 @@ import VueRouter from 'vue-router';
 import Vue from 'vue';
 import routes from './routers';
 
-Vue.use(VueRouter);
-// const router = new Router({
-//     routes
-// });
+import mainSelf from '../main.vue';
+import infoSelf from '../infomation/infoMain.vue';
+import newsSelf from '../news/news.vue';
 
-export default () => {
-    return new Router({
-        routes,
-    });
-};
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    routes: [
+        {path: '/', component: mainSelf},
+        {path: '/info', component: infoSelf},
+        {path: '/news', component: newsSelf}
+    ]
+});
+
+export default router;

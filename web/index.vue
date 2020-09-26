@@ -1,23 +1,21 @@
 <template>
     <div>
-        <!-- <router-link to="/">Index Page</router-link> -->
-        <!-- <Main/>        -->
-        <!-- <InfoMain></InfoMain> -->
-        <News/>
+        <hearderSelf/>
+        <navSelf/>
+        <router-view></router-view>
+        <footerSelf/>
     </div>
 </template>
 
 <script>
-import Main from './main.vue';
-import InfoMain from './infomation/infoMain.vue';
-import HeaderNav from './main/main_nav.vue';
-import News from './news/news.vue';
+import hearderSelf from './header/header.vue';
+import navSelf from './nav/nav.vue';
+import footerSelf from './footer/footer.vue';
 export default {
     components: {
-        Main,
-        InfoMain,
-        HeaderNav,
-        News,
+        hearderSelf,
+        navSelf,
+        footerSelf,
     }
 }
 </script>

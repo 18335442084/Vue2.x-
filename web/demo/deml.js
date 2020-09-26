@@ -37,3 +37,8 @@ getTplStr(tpl, data);
 
 getTplStr = (tpl, data) =>
  new Function('data', 'return' +  '`' + tpl.replace(/{/g, '${data.') + '`')(data);
+
+
+ const xhr = new XMLHttpRequest();
+
+ 

@@ -1,9 +1,15 @@
 <template>
     <div id="nav">
         <ul id="nav_con" class="center-lr clearfix">
-            <li class="navSplitLineL navSplitLine"><a href="#">首页</a></li>
-            <li class="navSplitLine"><a href="#">信息公开</a></li>
-            <li class="navSplitLine"><a href="#">新闻动态</a></li>
+            <li class="navSplitLineL navSplitLine"><router-link to="/">首页</router-link></li>
+            <li :class="{
+                    navSplitLine: true,
+                    active: pathName === 'info'
+                }"
+            >
+                <router-link to="/info">信息公开</router-link>
+            </li>
+            <li class="navSplitLine"><router-link to="/news">新闻动态</router-link></li>
             <li class="navSplitLine"><a href="#">政策文件</a></li>
             <li class="navSplitLine"><a href="#">纳税服务</a></li>
             <li class="navSplitLine"><a href="#">互动交流</a></li>
@@ -12,8 +18,20 @@
 </template>
 
 <script>
+import {RouterLink} from 'vue-router';
 export default {
-    
+    data() {
+        return {
+            pathName: ''
+        };
+    },
+    watch: {
+        '$route' (to, from) {
+            console.log(to, from, '???')
+
+            this.pathName = to.fullPath.slice(1);
+        }
+    }
 }
 </script>
 
@@ -59,5 +77,9 @@ export default {
 }
 .nav_con ul li a:hover {
     color: yellow;
+}
+
+.active {
+    background: #e10;
 }
 </style>

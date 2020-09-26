@@ -17,6 +17,11 @@ const config = {
         filename: 'bundle.[hash:8].js',
         path: path.join(__dirname, 'dist')
     },
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+        }
+    },
     module: {
         rules: [
             {

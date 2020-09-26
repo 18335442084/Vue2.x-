@@ -1,11 +1,12 @@
 <template>
     <div id="newsVedio">
-        <ul class="component-tabs-ul">
+        <ul class="component-tabs-ul clearfix">
             <li 
              v-for="(tab, tabIdx) of tabs"
              :key="tabIdx"
              class="fl"
-             :class="{tabActive: tabIdx === activeIdx}"
+             :class="{newsVedioTabActive: tabIdx === activeIdx}"
+             @mouseover="tabsEnter(tabIdx)"
             >
                 {{tab.text}}
             </li>
@@ -39,15 +40,22 @@ export default {
         return {
             tabs: this.newsVedioTabs,
             activeIdx: 0,
+            itemsArr: this.newsVedioItems,
             items: this.newsVedioItems[0],
         }
     },
     methods: {
-
+        tabsEnter(idx) {
+            this.items = this.itemsArr[idx];
+            this.activeIdx = idx;
+        }
     }
 }
 </script>
 
 <style>
-
+.newsVedioTabActive {
+    background-color: yellowgreen;
+    border-bottom: 2px solid grey;
+}
 </style>

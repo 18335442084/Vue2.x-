@@ -1,7 +1,5 @@
 <template>
   <div id="newsRoot">
-    <Header />
-    <Nav />
     <Position />
     <div id="newsRoot-con">
       <Title />
@@ -11,8 +9,10 @@
       </div>
       <div class="clearfix">
         <NewsList class="fl mg-r-10" />
-        <NewsVedio class="fl jianju_top" :newsVedioTabs="newsVedioData.tabs" 
-        :newsVedioItems="newsVedioData.items"
+        <NewsVedio 
+            class="fl jianju_top" 
+            :newsVedioTabs="newsVedioData.tabs" 
+            :newsVedioItems="newsVedioData.items"
         />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './index.vue';
-import Router from './router/router';
+import router from './router/router';
 
 import './global.css'
 
@@ -10,4 +10,5 @@ document.body.appendChild(root);
 
 new Vue({
     render: (h) => h(App),
+    router
 }).$mount(root);

@@ -57,10 +57,11 @@ ul {
 }
 /* 组件ul-tabs样式 */
 .component-tabs-ul {
+    margin-top:10px;
     width: 580px;
-    height: 60px;
     line-height: 60px;
     text-align: center;
+    border-bottom: 1px solid grey;
 }
 .component-tabs-ul li {
     width: 90px;
@@ -68,10 +69,15 @@ ul {
     cursor: pointer;
 }
 .component-con-ul {
+    margin-top: 10px;
     width: 580px;
 }
 .component-con-ul li {
+    margin: 0 20px 10px 0;
     width: 280px;
     height: 165px;
     background-color: pink;
+}
+.component-con-ul li:nth-child(even){
+    margin-right: 0;
 }
